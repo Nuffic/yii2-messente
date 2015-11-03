@@ -9,8 +9,8 @@
     ],
     "require": {},
     "autoload": {
-        "psr-0": {
-            "Messente": ""
+        "psr-4": {
+            "nuffic\\messente\\": ""
         }
     }
 }
