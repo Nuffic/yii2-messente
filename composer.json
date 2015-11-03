@@ -1,0 +1,16 @@
+{
+    "name": "nuffic/yii2-messente",
+    "description": "Messente component for Yii 2 framework",
+    "authors": [
+        {
+            "name": "Kaupo Juhkam",
+            "email": "kaupojuhkam@live.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "Messente": ""
+        }
+    }
+}
