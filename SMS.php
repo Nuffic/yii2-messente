@@ -27,8 +27,11 @@ class SMS extends Component
     /** @var  string Default from number */
     public $from;
 
-
-    public function init() {
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
         parent::init();
 
         if (empty($this->username) || empty($this->password)) {
@@ -45,7 +48,8 @@ class SMS extends Component
      * @return string
      * @throws InvalidParamException
      */
-    public function send($country, $message, $to, $from = null) {
+    public function send($country, $message, $to, $from = null)
+    {
 
         if (empty($from)) {
             if (empty($this->from)) {
@@ -62,7 +66,8 @@ class SMS extends Component
 
         $client = new Client();
         $response = $client->post(
-            $this->apiUrl, [
+            $this->apiUrl,
+            [
                 'form_params' => [
                     'username' => $this->username,
                     'password' => $this->password,
@@ -82,7 +87,8 @@ class SMS extends Component
      *
      * @return bool|string  false or phone number in international format
      */
-    public function validateNumber($number, $country) {
+    public function validateNumber($number, $country)
+    {
         $validator = PhoneNumberUtil::getInstance();
 
         try {
@@ -92,12 +98,10 @@ class SMS extends Component
             } else {
                 return false;
             }
-
         } catch (NumberParseException $e) {
             return false;
         } catch (Exception $e) {
             return false;
         }
     }
-
 }
